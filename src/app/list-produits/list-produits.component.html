@@ -1,0 +1,39 @@
+<input type="text" [(ngModel)]="rechercheCode" (input)="rechercheProducts()">
+<ol>
+  <div *ngFor="let produit of filteredProduits; let i = index">
+    <div style="border: 1px solid black; margin-bottom: 10px;" *ngIf="produit.prixUnitaire!=undefined">
+      <li [ngClass]="{'blue-text': produit.prixUnitaire <= 50}" [ngStyle]="{'font-style': produit.prixUnitaire <= 50 ? 'italic' : 'normal'}" [style.font-size.px]="produit.prixUnitaire <= 50 ? 20 : 'initial'">
+        idProduit: {{ produit.idProduit }}
+        <button [disabled]="produit.tauxTVA === 0.02" (click)="toggleTVA(produit)">Ajuster TVA</button>
+        <ul>
+          <li>Code: {{ produit.code }}</li>
+          <li>Libelle: {{ produit.libelle }}</li>
+          <li>Prix Unitaire: {{ produit.prixUnitaire }}</li>
+          <li>Taux TVA: {{ produit.tauxTVA }}</li>
+          <li *ngIf="produit.showTVA">TVA modifiée</li>
+        </ul>
+      </li>
+    </div>
+  </div>
+</ol>
+
+
+<form (ngSubmit)="addProduct()" #productForm="ngForm">
+  <div>
+    <label for="code">Code:</label>
+    <input type="text"  [(ngModel)]="newProduct.code" >
+  </div>
+  <div>
+    <label for="libelle">Libelle:</label>
+    <input type="text"  [(ngModel)]="newProduct.libelle" >
+  </div>
+  <div>
+    <label for="prixUnitaire">Prix Unitaire:</label>
+    <input type="number" [(ngModel)]="newProduct.prixUnitaire" >
+  </div>
+  <div>
+    <label for="tauxTVA">Taux TVA:</label>
+    <input type="number"[(ngModel)]="newProduct.tauxTVA" >
+  </div>
+  <button type="submit">Add</button>
+</form>
