@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import { ListFournisseurComponent } from './list-fournisseur/list-fournisseur.component';
 import { ListProduitsComponent } from './list-produits/list-produits.component';
+import { MainInvoiceComponent } from './main-invoice/main-invoice.component';
+import { InvoiceListComponent } from './invoice-list/invoice-list.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,9 @@ import { ListProduitsComponent } from './list-produits/list-produits.component';
     FournisseurComponent,
     ListFournisseurComponent,
     ListProduitsComponent,
+    MainInvoiceComponent,
+    InvoiceListComponent,
+    InvoiceComponent,
     
   ],
   imports: [
