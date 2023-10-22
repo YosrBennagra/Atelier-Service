@@ -1,12 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Produit } from './produit.model';
-
+import { Product } from '../product-module/product.module';
+import {ProductServiceService} from '../service/product-service.service'
 @Component({
   selector: 'app-list-produits',
   templateUrl: './list-produits.component.html',
   styleUrls: ['./list-produits.component.css']
 })
-export class ListProduitsComponent {
+export class ListProduitsComponent implements OnInit {
+  constructor(private productService: ProductServiceService) { }
+  ListProduct:Produit[]=[]
+  number : number=0; number9 : number=0;
+
+  afficheProduct:Product[]=[]
+  productCount: { [libelle: string]: number } = {};
+  ngOnInit(): void {
+
+    this.afficheProduct=this.productService.getAllProducts()
+    this.number=this.productService.getNbProductsByLibelle("PC")
+
+}
+codeR!: string;
+idProduit!: number;
+code!: string;
+libelle!: string;
+prixUnitaire!: number;
+tauxTVA!: number;
+
+
+
+protected readonly Number = Number;
+index: Number | undefined;
+  calculerProduit(libelle: string,i: Number) {
+    this.index=i;
+
+    this.number9=this.productService.getNbProductsByLibelle(libelle)
+
+  }
+
   produits: Produit[] = 
 [
 {idProduit:1,code:"P147852P",libelle:"Produit1", prixUnitaire:12.5, tauxTVA:0.02,},

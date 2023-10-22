@@ -9,6 +9,9 @@ import { ListProduitsComponent } from './list-produits/list-produits.component';
 import { MainInvoiceComponent } from './main-invoice/main-invoice.component';
 import { InvoiceListComponent } from './invoice-list/invoice-list.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { UserModuleComponent } from './user-module/user-module.component';
+import { ProductModuleComponent } from './product-module/product-module.component';
+import { ProviderModuleComponent } from './provider-module/provider-module.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { InvoiceComponent } from './invoice/invoice.component';
     MainInvoiceComponent,
     InvoiceListComponent,
     InvoiceComponent,
+    UserModuleComponent,
+    ProductModuleComponent,
+    ProviderModuleComponent,
     
   ],
   imports: [

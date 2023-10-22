@@ -1,4 +1,4 @@
-<input type="text" [(ngModel)]="rechercheCode" (input)="rechercheProducts()">
+<!-- <input type="text" [(ngModel)]="rechercheCode" (input)="rechercheProducts()">
 <ol>
   <div *ngFor="let produit of filteredProduits; let i = index">
     <div style="border: 1px solid black; margin-bottom: 10px;" *ngIf="produit.prixUnitaire!=undefined">
@@ -37,3 +37,18 @@
   </div>
   <button type="submit">Add</button>
 </form>
+ -->
+
+ <ol  *ngFor="let p of afficheProduct,let i=index "class="card mb-3">
+  <li >ID : {{ p.id }}</li>
+  <div >
+    <li style="color:rgba(152,7,241,0.25)" > Libelle {{p.libelle}}</li>
+    <li >code : {{ p.code }}</li>
+    <li >prixUnitaire : {{ p.prixunitaire }}</li>
+    <li >tauxTVA : {{ p.tauxTva }}</li>
+    <button (click)="calculerProduit(p.libelle,i)"  class="btn btn-warning">  calculer
+    </button>
+    <p *ngIf="index==i">number de produit de meme libelle : {{number9}}</p>
+
+  </div>
+</ol>
